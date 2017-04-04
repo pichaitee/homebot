@@ -29,6 +29,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
  }else if($arrJson['events'][0]['message']['text'] == "เปิดไฟหน้าบ้าน"){
   $arrPostData = array();
+  echo "Hello world!<br>";
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "เปิดไฟหน้าบ้านแล้วค่ะ";
