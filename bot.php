@@ -1,6 +1,7 @@
 <?php
 function linen()
-{       define('LINE_API',"https://notify-api.line.me/api/notify");
+{      ?>  http://linenotify.com/notify.php/?token=0LKWISh3dH62EGXv0eU1tL3JqJMkWfoZ4piWfZXfHC9&message=ConnectNet  <?
+	define('LINE_API',"https://notify-api.line.me/api/notify");
 	define('LINE_TOKEN','0LKWISh3dH62EGXv0eU1tL3JqJMkWfoZ4piWfZXfHC9');
 
 	function notify_message($message){
