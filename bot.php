@@ -1,29 +1,29 @@
 <?php
 function linen()
-{       define('LINE_API',"https://notify-api.line.me/api/notify");
-        define('LINE_TOKEN','0LKWISh3dH62EGXv0eU1tL3JqJMkWfoZ4piWfZXfHC9');
+{       define(‘LINE_API’,”https://notify-api.line.me/api/notify");
 
-        $str = “Hello”; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
- 
-                        $res = notify_message($str,$token);
-                        print_r($res);
-                        function notify_message($message,$token){
-                         $queryData = array(‘message’ => $message);
-                         $queryData = http_build_query($queryData,’’,’&’);
-                         $headerOptions = array( 
-                                 ‘http’=>array(
-                                    ‘method’=>’POST’,
-                                    ‘header’=> “Content-Type: application/x-www-form-urlencoded\r\n”
-                                              .”Authorization: Bearer “.$token.”\r\n”
-                                              .”Content-Length: “.strlen($queryData).”\r\n”,
-                                    ‘content’ => $queryData
-                                 ),
-                                 );
-                                 $context = stream_context_create($headerOptions);
-                                 $result = file_get_contents(LINE_API,FALSE,$context);
-                                 $res = json_decode($result);
-                                 return $res;
-                                }
+        $token = “0LKWISh3dH62EGXv0eU1tL3JqJMkWfoZ4piWfZXfHC9”; //ใส่Token ที่copy เอาไว้
+        $str = “ปิดไฟหน้าบ้าน”; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+
+        $res = notify_message($str,$token);
+        print_r($res);
+        function notify_message($message,$token){
+         $queryData = array(‘message’ => $message);
+         $queryData = http_build_query($queryData,’’,’&’);
+         $headerOptions = array( 
+                 ‘http’=>array(
+                    ‘method’=>’POST’,
+                    ‘header’=> “Content-Type: application/x-www-form-urlencoded\r\n”
+                              .”Authorization: Bearer “.$token.”\r\n”
+                              .”Content-Length: “.strlen($queryData).”\r\n”,
+                    ‘content’ => $queryData
+                 ),
+         );
+         $context = stream_context_create($headerOptions);
+         $result = file_get_contents(LINE_API,FALSE,$context);
+         $res = json_decode($result);
+         return $res;
+        }
 }
  
 $strAccessToken = "oAjwYp4U0ZJgTZQ7Fd7D3a1bVQwbI9r9mG9v9u4G9RDl7iAjKKVogUIDyJ7R/YoIQPUPJTwaGGZ8HFaXnrx2USyzARVzHQI7oTIY6FrI4Fg1nvsA0m0hwTCocgjIhpbZJfLrSO3BEmTaPoSCDJxzGgdB04t89/1O/w1cDnyilFU=";
