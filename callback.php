@@ -3,8 +3,8 @@
  
  
    
-  $channelId = "--LINE Channel ID--";
-  $channelSecret = "--LINE Channel Secret--"; 
+  $channelId = "1508859343";
+  $channelSecret = "c048cc31f5686eb7fb0b1060ffd0067e"; 
   $mid = "--LINE BOT MID--"; 
  
    
