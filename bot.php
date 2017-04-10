@@ -67,7 +67,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "เปิดไฟหน้าบ้านแล้วค่ะ";
-  nodemcu1(1);
+  nodemcu1("ON");
  }else if($arrJson['events'][0]['message']['text'] == "ปิดไฟหน้าบ้าน"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
