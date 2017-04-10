@@ -49,7 +49,32 @@
   microgear.resettoken(function(err) {
     microgear.connect(APPID);
   });
-
+ 
+	
+function linen()
+{      
+	define('LINE_API',"https://notify-api.line.me/api/notify");
+	define('LINE_TOKEN','0LKWISh3dH62EGXv0eU1tL3JqJMkWfoZ4piWfZXfHC9');
+	function notify_message($message){
+	    $queryData = array('message' => $message);
+	    $queryData = http_build_query($queryData,'','&');
+	    $headerOptions = array(
+		'http'=>array(
+		    'method'=>'POST',
+		    'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
+				  ."Authorization: Bearer ".LINE_TOKEN."\r\n"
+			      ."Content-Length: ".strlen($queryData)."\r\n",
+		    'content' => $queryData
+		)
+	    );
+	    $context = stream_context_create($headerOptions);
+	    $result = file_get_contents(LINE_API,FALSE,$context);
+	    $res = json_decode($result);
+		return $res;
+	}
+	$res = notify_message('มีการเปิดไฟหน้าบ้าน');
+	var_dump($res);
+}
 </script>
 <?php
 
@@ -113,6 +138,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "เปิดไฟหน้าบ้านแล้วค่ะ";
+  linen();
  ?>
   switchPress(1);
  <?php
