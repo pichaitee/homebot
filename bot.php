@@ -1,7 +1,7 @@
 
 <?php
 
-function netpio()
+/*function netpio()
 {
 	<script>
 
@@ -53,7 +53,7 @@ function netpio()
 	  });
 
 	</script>
-}
+}*/
 
 function linen()
 {      
