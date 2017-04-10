@@ -113,6 +113,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "เปิดไฟหน้าบ้านแล้วค่ะ";
   //linen();
+  netpio(switchPress(1));
   //switchPress(1);
  }else if($arrJson['events'][0]['message']['text'] == "ปิดไฟหน้าบ้าน"){
   $arrPostData = array();
