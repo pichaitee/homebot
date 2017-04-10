@@ -1,56 +1,60 @@
 
-<script src="https://cdn.netpie.io/microgear.js"></script>
+<?php
 
-<script>
+function netpio()
+{
+	<script>
 
-  const APPID = "YouNETPIEAppID";
-  const KEY = "b5uB1JoFA1rjBRb";
-  const SECRET = "Vc2fBchO5S39uWL9WxpfRQbLi";
+	  const APPID = "YouNETPIEAppID";
+	  const KEY = "b5uB1JoFA1rjBRb";
+	  const SECRET = "Vc2fBchO5S39uWL9WxpfRQbLi";
 
-  const ALIAS = "DigitalOUTPUT_HTML_web";     //  ชื่อตัวเอง
-  const thing1 = "NodeMCU1";                                   //  ชื่อเพื่อนที่จะคุย
+	  const ALIAS = "DigitalOUTPUT_HTML_web";     //  ชื่อตัวเอง
+	  const thing1 = "NodeMCU1";                                   //  ชื่อเพื่อนที่จะคุย
 
-  function switchPress(logic){
-    if(logic == 1 ){
-      microgear.chat(thing1,"ON");
-    }else if(logic == 0 ){
-      microgear.chat(thing1,"OFF");
-    }
-  }
+	  function switchPress(logic){
+	    if(logic == 1 ){
+	      microgear.chat(thing1,"ON");
+	    }else if(logic == 0 ){
+	      microgear.chat(thing1,"OFF");
+	    }
+	  }
 
-  var microgear = Microgear.create({
-    key: KEY,
-    secret: SECRET,
-    alias : ALIAS
-  });
+	  var microgear = Microgear.create({
+	    key: KEY,
+	    secret: SECRET,
+	    alias : ALIAS
+	  });
 
 
-  microgear.on('message', function(topic,data) {
-    if(data=="ON"){
-      document.getElementById("Status").innerHTML =  "Load is ON.";
-    }else if(data=="OFF"){
-      document.getElementById("Status").innerHTML =  "Load is OFF."; 
-    }
-  });
+	  microgear.on('message', function(topic,data) {
+	    if(data=="ON"){
+	      document.getElementById("Status").innerHTML =  "Load is ON.";
+	    }else if(data=="OFF"){
+	      document.getElementById("Status").innerHTML =  "Load is OFF."; 
+	    }
+	  });
 
-  microgear.on('connected', function() {
-    microgear.setAlias(ALIAS);
-    document.getElementById("connected_NETPIE").innerHTML = "Connected to NETPIE"
-  });
+	  microgear.on('connected', function() {
+	    microgear.setAlias(ALIAS);
+	    document.getElementById("connected_NETPIE").innerHTML = "Connected to NETPIE"
+	  });
 
-  microgear.on('present', function(event) {
-    console.log(event);
-  });
+	  microgear.on('present', function(event) {
+	    console.log(event);
+	  });
 
-  microgear.on('absent', function(event) {
-    console.log(event);
-  });
+	  microgear.on('absent', function(event) {
+	    console.log(event);
+	  });
 
-  microgear.resettoken(function(err) {
-    microgear.connect(APPID);
-  });
- 
-	
+	  microgear.resettoken(function(err) {
+	    microgear.connect(APPID);
+	  });
+
+	</script>
+}
+
 function linen()
 {      
 	define('LINE_API',"https://notify-api.line.me/api/notify");
@@ -75,11 +79,6 @@ function linen()
 	$res = notify_message('มีการเปิดไฟหน้าบ้าน');
 	var_dump($res);
 }
-</script>
-<?php
-
-
-
  
 $strAccessToken = "oAjwYp4U0ZJgTZQ7Fd7D3a1bVQwbI9r9mG9v9u4G9RDl7iAjKKVogUIDyJ7R/YoIQPUPJTwaGGZ8HFaXnrx2USyzARVzHQI7oTIY6FrI4Fg1nvsA0m0hwTCocgjIhpbZJfLrSO3BEmTaPoSCDJxzGgdB04t89/1O/w1cDnyilFU=";
 
@@ -113,10 +112,8 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "เปิดไฟหน้าบ้านแล้วค่ะ";
-  linen();
- ?>
-  switchPress(1);
- <?php
+  //linen();
+  //switchPress(1);
  }else if($arrJson['events'][0]['message']['text'] == "ปิดไฟหน้าบ้าน"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
