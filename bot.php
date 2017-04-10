@@ -1,59 +1,6 @@
 
 <?php
 
-function netpio1()
-{
-	<script>
-
-	  const APPID = "YouNETPIEAppID";
-	  const KEY = "b5uB1JoFA1rjBRb";
-	  const SECRET = "Vc2fBchO5S39uWL9WxpfRQbLi";
-
-	  const ALIAS = "DigitalOUTPUT_HTML_web";     //  ชื่อตัวเอง
-	  const thing1 = "NodeMCU1";                                   //  ชื่อเพื่อนที่จะคุย
-
-	  function switchPress(logic){
-	    if(logic == 1 ){
-	      microgear.chat(thing1,"ON");
-	    }else if(logic == 0 ){
-	      microgear.chat(thing1,"OFF");
-	    }
-	  }
-
-	  var microgear = Microgear.create({
-	    key: KEY,
-	    secret: SECRET,
-	    alias : ALIAS
-	  });
-
-
-	  microgear.on('message', function(topic,data) {
-	    if(data=="ON"){
-	      document.getElementById("Status").innerHTML =  "Load is ON.";
-	    }else if(data=="OFF"){
-	      document.getElementById("Status").innerHTML =  "Load is OFF."; 
-	    }
-	  });
-
-	  microgear.on('connected', function() {
-	    microgear.setAlias(ALIAS);
-	    document.getElementById("connected_NETPIE").innerHTML = "Connected to NETPIE"
-	  });
-
-	  microgear.on('present', function(event) {
-	    console.log(event);
-	  });
-
-	  microgear.on('absent', function(event) {
-	    console.log(event);
-	  });
-
-	  microgear.resettoken(function(err) {
-	    microgear.connect(APPID);
-	  });
-
-	</script>
-}
 
 function linen()
 {      
@@ -113,8 +60,6 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "เปิดไฟหน้าบ้านแล้วค่ะ";
   //linen();
- // netpio(switchPress(1));
-  //switchPress(1);
  }else if($arrJson['events'][0]['message']['text'] == "ปิดไฟหน้าบ้าน"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
