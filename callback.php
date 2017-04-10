@@ -5,7 +5,7 @@
    
   $channelId = "1508859343";
   $channelSecret = "c048cc31f5686eb7fb0b1060ffd0067e"; 
-  $mid = "--LINE BOT MID--"; 
+  $mid = "u807dd67ef35851a3565257047ab369db"; 
  
    
   $requestBodyString = file_get_contents('php://input');
