@@ -35,7 +35,7 @@
      
     curl_setopt($ch, CURLOPT_POSTFIELDS, $tmsg);
  
-    curl_setopt($ch, CURLOPT_USERPWD, "{YOUR NETPIE.IO APP KEY}:{YOUR NETPIE.IO APP SECRET}");
+    curl_setopt($ch, CURLOPT_USERPWD, "{MwYg5OcLknkWohF}:{IjjOCtf7idPZ4BwMAxS70hqxl}");
      
     $response = curl_exec($ch);
      
