@@ -1,6 +1,14 @@
 
 <?php
 
+function sonoff($state) {
+    $ch = curl_init("https://api.netpie.io/microgear/YouNETPIEAppID/nodemcu1?auth=MwYg5OcLknkWohF:IjjOCtf7idPZ4BwMAxS70hqxl");
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$state);
+    $response = curl_exec($ch);
+    return "$response\n";
+  }
 
 function linen()
 {      
